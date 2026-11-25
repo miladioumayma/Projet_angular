@@ -1,0 +1,80 @@
+
+<div class="container">
+
+  <div class="header">
+    <div class="calendar-icon">🗓️</div>
+
+    <div>
+      <h2>Liste des conférences à venir</h2>
+      <p>Cliquez sur une conférence pour afficher ses détails.</p>
+    </div>
+  </div>
+
+  <input
+    type="text"
+    placeholder="Taper le titre de la conférence"
+    [(ngModel)]="searchTerm"
+    class="search"
+  >
+
+  @if (searchConference().length == 0) {
+
+    <p class="message">Aucune conférence enregistrée.</p>
+
+  } @else {
+
+    <div class="conference-list">
+
+      @for (conference of searchConference() ; track conference.id) {
+        @if(conference.date >= now ){
+                                    
+          <div class="conference-card" (click)="selectConference(conference)">
+
+          <h3>{{ conference.title | uppercase }}</h3>
+
+          <p>
+            <strong>Date :</strong>
+            {{ conference.date | date:'dd/MM/yyyy' }}
+          </p>
+
+          <p>
+            <strong>Lieu :</strong>
+            {{ conference.place }}
+          </p>
+
+          <p>
+            <strong>Places restantes :</strong>
+            {{ getPlacesRestantes(conference) }}
+          </p>
+
+          <button
+            (click)="inscrire(conference)"
+            [ngClass]="{
+              'vert': getPlacesRestantes(conference) >= 10,
+              'orange': getPlacesRestantes(conference) < 10 && getPlacesRestantes(conference) > 0,
+              'rouge': getPlacesRestantes(conference) == 0
+            }"
+            [disabled]="getPlacesRestantes(conference) == 0"
+          >
+            @if (getPlacesRestantes(conference) == 0) {
+              S'inscrire
+            } @else {
+              S'inscrire
+            }
+          </button>
+        
+
+        </div>
+      }
+
+      } @empty {
+        <p class="message">Aucune conférence trouvée.</p>
+      }
+
+    </div>
+  }
+  <app-conference-details
+    [conference]="selectedConference()"
+    (closed)="clearSelection()"
+  ></app-conference-details>
+</div>

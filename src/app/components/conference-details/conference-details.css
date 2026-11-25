@@ -1,0 +1,10 @@
+.details {
+  margin-top: 24px;
+  padding: 16px 20px;
+  border: 1px solid #d0d7e2;
+  border-radius: 12px;
+  background: #f8faff;
+}
+.details h2 { margin-top: 0; }
+.empty { color: #777; font-style: italic; }
+button { margin-top: 8px; cursor: pointer; }

@@ -1,0 +1,146 @@
+
+/* Conteneur principal */
+.container {
+  width: 100%;
+  margin: 20px 0;
+  padding: 25px 30px;
+  border-left: 4px solid #438779;
+  border-radius: 14px;
+  background-color: white;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+/* Titre et icône */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.calendar-icon {
+  width: 55px;
+  height: 55px;
+  min-width: 55px;
+  background-color: #e9f8f5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+}
+
+.header h2 {
+  color: #263d68;
+  font-size: 22px;
+  margin: 0 0 5px;
+}
+
+.header p {
+  color: #777;
+  font-size: 13px;
+  margin: 0;
+}
+
+/* Barre de recherche */
+.search {
+  width: 65%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.search:focus {
+  border-color: #438779;
+}
+
+/* Liste des conférences */
+.conference-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+}
+
+/* Carte conférence */
+.conference-card {
+  background-color: #faf9fc;
+  border: 1px solid #e2dfec;
+  border-radius: 12px;
+  padding: 18px;
+  min-height: 190px;
+  box-sizing: border-box;
+  transition: 0.2s;
+}
+
+.conference-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* Titre de la conférence */
+.conference-card h3 {
+  color: #263d68;
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+/* Informations */
+.conference-card p {
+  font-size: 13px;
+  margin-bottom: 12px;
+  color: #222;
+}
+
+/* Boutons */
+button {
+  padding: 9px 16px;
+  border: none;
+  border-radius: 7px;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Disponible : 10 places ou plus */
+.vert {
+  background-color: #43834c;
+}
+
+/* Moins de 10 places */
+.orange {
+  background-color: #d78327;
+}
+
+/* Plus aucune place */
+.rouge {
+  background-color: #b93636;
+  cursor: not-allowed;
+}
+
+button:disabled {
+  opacity: 1;
+}
+
+/* Message */
+.message {
+  color: #777;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .conference-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+

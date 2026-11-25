@@ -1,0 +1,12 @@
+<div class="details">
+  @if (conference(); as c) {
+    <h2>{{ c.title }}</h2>
+    <p>{{ c.description }}</p>
+    <p><strong>Date :</strong> {{ c.date | date:'dd/MM/yyyy' }}</p>
+    <p><strong>Lieu :</strong> {{ c.place }}</p>
+    <p><strong>Participants :</strong> {{ c.nbParticipants }} / {{ c.maxParticipants }}</p>
+    <button (click)="closed.emit()">Fermer</button>
+  } @else {
+    <p class="empty">Sélectionnez une conférence pour voir ses détails.</p>
+  }
+</div>

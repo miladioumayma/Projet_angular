@@ -1,0 +1,21 @@
+<section class="card" id="amis">
+<div class="icon">👥</div>
+<div>
+<h2>Liste des amis</h2>
+
+<input type="text"
+    placeholder="Chercher un ami"[(ngModel)]="friendName"  class="search"> 
+<ul>
+    @for(f of friendsList; track f){
+        @if (f.toUpperCase().includes(friendName.toUpperCase())){
+           <li>{{ f }}</li>
+        } 
+        
+    }
+    @empty{
+        Aucun ami trouvé.
+    }
+
+</ul>
+</div> 
+</section>
